@@ -5,6 +5,11 @@ node_mnodules/# See https://help.github.com/articles/ignoring-files/ for more ab
 /.pnp
 .pnp.js
 
+# by 
+public/dist/
+.env.test
+.env.development
+
 # testing
 /coverage
 
