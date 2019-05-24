@@ -1,16 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-// import { Provider } from 'react-redux';
-// import { createStore, applyMiddleware, compose } from 'redux';
-// import reduxThunk from 'redux-thunk';
+import { createStore, applyMiddleware } from 'redux';
+import { Provider } from 'react-redux';
+import ReduxThunk from 'redux-thunk';
+import reducers from './reducers';
+import Routes from './router';
+import '../style/materialize.css';
+import '../style/react-range.css';
+import '../style/style.css';
 
+const App = () => {
+  const store = createStore(reducers, {}, applyMiddleware(ReduxThunk));
 
-import App from './components/App';
-// import reducers from './reducers';
+  return (
+    <Provider store={store}>
+      <Routes />
+    </Provider>
+  );
+};
 
-// const store = createStore(
-//   reducers, 
-//   composeEnhancers(applyMiddleware(reduxThunk))
-// );
-
-ReactDOM.render( < App / > ,document.querySelector('#root'));
+ReactDOM.render(<App />, document.getElementById('root'));
